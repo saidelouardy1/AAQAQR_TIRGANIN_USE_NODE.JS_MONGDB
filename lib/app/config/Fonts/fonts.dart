@@ -1,4 +1,6 @@
 class Fonts {
+  static const displayLarge = 20.00;
+  
   static const titleLarge = 16.00;
   static const titleMedium = 15.00;
   static const titleSmall = 14.00;

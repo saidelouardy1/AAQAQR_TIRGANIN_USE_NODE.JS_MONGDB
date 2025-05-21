@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class SplashScreenController extends GetxController {
   
-  RxString NameCompany = "عقاقير تركانين".obs;
+  
 
   MoveToNextPage() {
     Timer(Duration(seconds: 2), () {

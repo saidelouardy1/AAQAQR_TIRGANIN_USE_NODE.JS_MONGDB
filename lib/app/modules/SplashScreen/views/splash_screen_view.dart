@@ -1,7 +1,6 @@
 import 'package:aaqaqir_tirganin/app/config/Assets/images.dart';
 import 'package:aaqaqir_tirganin/app/config/Fonts/fonts.dart';
 import 'package:aaqaqir_tirganin/app/config/themes/colors.dart';
-import 'package:fade_out_particle/fade_out_particle.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -32,18 +31,6 @@ class SplashScreenView extends GetView<SplashScreenController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // FadeOutParticle(
-            //   disappear: true,
-            //   duration: Duration(seconds: 20),
-            //   child: Text(
-            //     "hhhh",
-            //     style: TextStyle(
-            //       color: Colors.white,
-            //       fontSize: Fonts.displayLarge
-            //     ),
-            //     )
-            //     ),
-         
             Container(
               padding: EdgeInsets.all(1),
               decoration: BoxDecoration(
@@ -57,11 +44,11 @@ class SplashScreenView extends GetView<SplashScreenController> {
             ),
              SizedBox(height: 10),
                Text(
-                "hhhh",
+                "AAQAQIR_TIRGANIN".tr,
                 style: GoogleFonts.openSans(
                   color: Colors.white,
                   fontSize: Fonts.titleLarge,
-                  fontWeight: FontWeight.w300
+                  fontWeight: FontWeight.w300,
                 ),
                 ),
           ],
