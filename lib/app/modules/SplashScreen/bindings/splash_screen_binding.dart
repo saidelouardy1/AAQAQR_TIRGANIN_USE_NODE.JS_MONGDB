@@ -8,5 +8,6 @@ class SplashScreenBinding extends Bindings {
     Get.lazyPut<SplashScreenController>(
       () => SplashScreenController(),
     );
+    
   }
 }

@@ -1,6 +1,11 @@
+import 'package:aaqaqir_tirganin/app/config/Assets/images.dart';
+import 'package:aaqaqir_tirganin/app/config/Fonts/fonts.dart';
+import 'package:aaqaqir_tirganin/app/config/themes/colors.dart';
+import 'package:fade_out_particle/fade_out_particle.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../controllers/splash_screen_controller.dart';
 
@@ -9,14 +14,57 @@ class SplashScreenView extends GetView<SplashScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashScreenView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'SplashScreenView is working',
-          style: TextStyle(fontSize: 20),
+      backgroundColor: Colors.white,
+      body: Container(
+        width: Get.width,
+        height: Get.height,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              ColorsApp.Colors_gradientSplachscreen1,
+              ColorsApp.Colors_gradientSplachscreen2,
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // FadeOutParticle(
+            //   disappear: true,
+            //   duration: Duration(seconds: 20),
+            //   child: Text(
+            //     "hhhh",
+            //     style: TextStyle(
+            //       color: Colors.white,
+            //       fontSize: Fonts.displayLarge
+            //     ),
+            //     )
+            //     ),
+         
+            Container(
+              padding: EdgeInsets.all(1),
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                shape: BoxShape.circle,
+              ),
+              child: CircleAvatar(
+                backgroundImage: AssetImage(ImagesIconApp.logo),
+                radius: 100,
+              ),
+            ),
+             SizedBox(height: 10),
+               Text(
+                "hhhh",
+                style: GoogleFonts.openSans(
+                  color: Colors.white,
+                  fontSize: Fonts.titleLarge,
+                  fontWeight: FontWeight.w300
+                ),
+                ),
+          ],
         ),
       ),
     );
