@@ -37,6 +37,7 @@ dependencies:
   get: ^4.7.2
   fade_out_particle: ^1.2.2
   google_fonts: ^6.2.1
+  flutter_svg: ^2.1.0
 
 dev_dependencies:
   flutter_test:

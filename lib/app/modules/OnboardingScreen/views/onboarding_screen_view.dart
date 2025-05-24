@@ -1,5 +1,6 @@
 import 'package:aaqaqir_tirganin/app/config/Fonts/fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,10 +16,10 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
       body: Container(
         width: Get.width,
         height: Get.height,
-        padding: EdgeInsets.all(40),
+        padding: EdgeInsets.symmetric(horizontal: 30 , vertical: 20),
         child: Stack(
           children: [
-            Text(
+             Text(
               "AAQAQIR_TIRGANIN".tr,
               textAlign: TextAlign.right,
               style: GoogleFonts.pacifico(
@@ -28,42 +29,31 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
               ),
             ),
             Align(
-              alignment: Alignment.center,
+              alignment: Alignment.bottomCenter,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "Choose your language".tr,
-                    textAlign: TextAlign.right,
-                    style: GoogleFonts.merriweather(
-                      color: Colors.black,
-                      fontSize: Fonts.displayLarge,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                Row(
-                  children: List.generate(
-                    2, 
-                    (index)=> Container(
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              
-                            ],
-                          )
-                        ],
+                   Text(
+                      "Choose your language".tr,
+                      textAlign: TextAlign.right,
+                      style: GoogleFonts.merriweather(
+                        color: Colors.black,
+                        fontSize: Fonts.displayLarge,
+                        fontWeight: FontWeight.w600,
                       ),
-                    )
-                  )
-                )
+                    ),
+                    // container(
+
+                    // )
                 ],
               ),
-            ),
+            )
           ],
-        ),
+        )
       ),
     );
   }
 }
+
+
+   
