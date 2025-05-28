@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import 'package:aaqaqir_tirganin/app/modules/OnboardingScreen/pages/roleSelection_screen.dart';
 import '../modules/Authentication/bindings/authentication_binding.dart';
 import '../modules/Authentication/views/authentication_view.dart';
 import '../modules/OnboardingScreen/bindings/onboarding_screen_binding.dart';
@@ -30,6 +31,11 @@ class AppPages {
     GetPage(
       name: _Paths.ONBOARDING_SCREEN,
       page: () => const OnboardingScreenView(),
+      binding: OnboardingScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.ROLESELECATIONSCREEN,
+      page: () => const RoleselectionScreen(),
       binding: OnboardingScreenBinding(),
     ),
     GetPage(
