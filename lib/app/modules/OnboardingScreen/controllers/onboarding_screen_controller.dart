@@ -29,7 +29,7 @@ class OnboardingScreenController extends GetxController {
     switch(index){
       case  0: Get.offAllNamed(Routes.NAVIGATOR_BAR);
       break;
-      case  1: Get.offAllNamed(Routes.NAVIGATOR_BAR);
+      case  1: Get.offAllNamed(Routes.NAVIGATOR_BAR_STAFF);
       break;
       default : Get.offAllNamed(Routes.NAVIGATOR_BAR);
       break;
