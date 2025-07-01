@@ -8,6 +8,9 @@ abstract class Routes {
   static const ONBOARDING_SCREEN = _Paths.ONBOARDING_SCREEN;
   static const ROLESELECATIONSCREEN = _Paths.ROLESELECATIONSCREEN;
   static const AUTHENTICATION = _Paths.AUTHENTICATION;
+  static const HOME_STAFF_SCREEN = _Paths.HOME_STAFF_SCREEN;
+  static const NAVIGATOR_BAR = _Paths.NAVIGATOR_BAR;
+  static const NAVIGATOR_BAR_STAFF = _Paths.NAVIGATOR_BAR_STAFF;
 }
 
 abstract class _Paths {
@@ -17,4 +20,7 @@ abstract class _Paths {
   static const ONBOARDING_SCREEN = '/onboarding-screen';
   static const ROLESELECATIONSCREEN = '/roleselecationscreen';
   static const AUTHENTICATION = '/authentication';
+  static const HOME_STAFF_SCREEN = '/home-staff-screen';
+  static const NAVIGATOR_BAR = '/navigator-bar';
+  static const NAVIGATOR_BAR_STAFF = '/navigator-bar-staff';
 }

@@ -12,6 +12,7 @@ class ImagesIconApp {
  static const bookleft = "Assets/icons/bookLeft.svg";
  static const bookright = "Assets/icons/bookRight.svg";
  static const iconbackleft = "Assets/icons/iconbackleft.svg";
+ static const iconbackright = "Assets/icons/iconbackright.svg";
 
 
  /////////////// jison

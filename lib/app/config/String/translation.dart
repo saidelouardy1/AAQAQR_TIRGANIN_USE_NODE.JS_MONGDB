@@ -10,7 +10,7 @@ class StringApp implements Translations{
       "Let’s use French" : "دعنا نستخدم الفرنسية",
       "Let’s use English" : "دعنا نستخدم الإنجليزية",
       "Next Step" : "الخطوة التالية",
-      "Join as as" : " انضم كمسؤول أو موظف ",
+      "Join as" : " انضم كمسؤول أو موظف ",
       "Choose" : "اختر دورك للوصول إلى الميزات المصممة وفقًا لمسؤولياتك.",
       "Admin" : "مسؤل",
       "Staff" :  "طاقم عمل",

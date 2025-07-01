@@ -32,10 +32,10 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            //////animation translation 
+            //////animation translation
             Align(
               alignment: Alignment.center,
-              child: Lottie.asset(ImagesIconApp.animation_translation)
+              child: Lottie.asset(ImagesIconApp.animation_translation),
             ),
             //// widget in senter for choose the language
             Align(
@@ -66,7 +66,7 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                               duration: Duration(milliseconds: 200),
                               curve: Curves.easeInOut,
                               height: Get.height / 4,
-                              width: Get.width / 6,
+                              width: double.infinity,
                               margin: EdgeInsets.all(20),
                               alignment: Alignment.center,
                               padding: EdgeInsets.all(16),
@@ -86,12 +86,14 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                               ),
                               child: SingleChildScrollView(
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         SvgPicture.asset(
                                           ImagesIconApp.bookright,
@@ -101,7 +103,7 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                                           () => GestureDetector(
                                             onTap: () {
                                               controller.isSelect.value = 2;
-                                              controller.toggle(2);
+                                              controller.toggleLanguage(2);
                                             },
                                             child: Container(
                                               width: 25,
@@ -117,10 +119,15 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                                               child:
                                                   controller.isSelect.value == 2
                                                       ? Container(
-                                                        decoration: BoxDecoration(
-                                                          color: ColorsApp.Colors2,
-                                                          shape: BoxShape.circle,
-                                                        ),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                              color:
+                                                                  ColorsApp
+                                                                      .Colors2,
+                                                              shape:
+                                                                  BoxShape
+                                                                      .circle,
+                                                            ),
                                                       )
                                                       : SizedBox(),
                                             ),
@@ -149,9 +156,8 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                         ),
                       ),
                       //////////////.........; container
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                      Wrap(
+                        alignment: WrapAlignment.center,
                         children: List.generate(
                           controller.ChooseLanguage.length,
                           (index) => IntrinsicWidth(
@@ -163,7 +169,7 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                                   duration: Duration(milliseconds: 200),
                                   curve: Curves.easeInOut,
                                   height: Get.height / 4,
-                                  width: Get.width / 6,
+                                  width: double.infinity,
                                   margin: EdgeInsets.all(20),
                                   alignment: Alignment.center,
                                   padding: EdgeInsets.all(16),
@@ -187,10 +193,8 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             SvgPicture.asset(
                                               ImagesIconApp.bookleft,
@@ -199,8 +203,11 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                                             Obx(
                                               () => GestureDetector(
                                                 onTap: () {
-                                                  controller.isSelect.value = index;
-                                                  controller.toggle(index);
+                                                  controller.isSelect.value =
+                                                      index;
+                                                  controller.toggleLanguage(
+                                                    index,
+                                                  );
                                                 },
                                                 child: Container(
                                                   width: 25,
@@ -214,13 +221,18 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                                                     shape: BoxShape.circle,
                                                   ),
                                                   child:
-                                                      controller.isSelect.value ==
+                                                      controller
+                                                                  .isSelect
+                                                                  .value ==
                                                               index
                                                           ? Container(
                                                             decoration: BoxDecoration(
                                                               color:
-                                                                  ColorsApp.Colors2,
-                                                              shape: BoxShape.circle,
+                                                                  ColorsApp
+                                                                      .Colors2,
+                                                              shape:
+                                                                  BoxShape
+                                                                      .circle,
                                                             ),
                                                           )
                                                           : SizedBox(),
@@ -252,60 +264,62 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                       ),
                       ///////// box
                       SizedBox(height: 20),
-                      //////////// button to move
-                      SizedBox(
-                        width: Get.width / 5.5,
-                        height: Get.height / 13,
-                        child: Obx(
-                          () => ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  controller.isSelect.value > (-1)
-                                      ? Colors.black
-                                      : Colors.grey[200],
-                              foregroundColor: Colors.grey[600],
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              minimumSize: Size(double.infinity, double.infinity),
-                            ),
-                            onPressed: () {
-                              if (controller.isSelect.value > (-1)) {
-                                Get.toNamed(Routes.ROLESELECATIONSCREEN);
-                                 controller.initNumber.value = 1;
-                              }
-                            },
-                            child: Text(
-                              "Next Step".tr,
-                              style: GoogleFonts.robotoCondensed(
-                                color:
-                                    controller.isSelect.value > (-1)
-                                        ? Colors.white
-                                        : Colors.grey[500],
-                                fontWeight: FontWeight.w600,
-                                fontSize: Fonts.titleSmall,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      ///////// box
-                      SizedBox(height: 20),
                     ],
                   ),
                 ),
               ),
             ),
             Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: List.generate(
-                        2,
-                        (index) => Obx(
-                          ()=>Container(
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  //////////// button to move
+                  SizedBox(
+                    width: Get.width / 5.5,
+                    height: Get.height / 13,
+                    child: Obx(
+                      () => ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              controller.isSelect.value > (-1)
+                                  ? Colors.black
+                                  : Colors.grey[200],
+                          foregroundColor: Colors.grey[600],
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          minimumSize: Size(double.infinity, double.infinity),
+                        ),
+                        onPressed: () {
+                          if (controller.isSelect.value > (-1)) {
+                            Get.toNamed(Routes.ROLESELECATIONSCREEN);
+                            controller.initNumber.value++;
+                          }
+                        },
+                        child: Text(
+                          "Next Step".tr,
+                          style: GoogleFonts.robotoCondensed(
+                            color:
+                                controller.isSelect.value > (-1)
+                                    ? Colors.white
+                                    : Colors.grey[500],
+                            fontWeight: FontWeight.w600,
+                            fontSize: Fonts.titleSmall,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  ///////// box
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: List.generate(
+                      controller.ChooseRoles.length,
+                      (index) => Obx(
+                        () => Container(
                           width: 90,
                           height: 2,
                           margin: EdgeInsets.only(top: 20, left: 2, right: 2),
@@ -317,10 +331,12 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                             borderRadius: BorderRadius.circular(50),
                           ),
                         ),
-                        )
                       ),
                     ),
                   ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
