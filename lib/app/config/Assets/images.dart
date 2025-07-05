@@ -8,7 +8,9 @@ class ImagesIconApp {
  
 
  /////////// svg 
- 
+ static const Home = "Assets/icons/Home.svg";
+ static const Setting = "Assets/icons/Setting.svg";
+ static const Delete = "Assets/icons/Delete.svg";
  static const bookleft = "Assets/icons/bookLeft.svg";
  static const bookright = "Assets/icons/bookRight.svg";
  static const iconbackleft = "Assets/icons/iconbackleft.svg";
