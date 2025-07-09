@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
-class NavigatorBarController extends GetxController {
+class NavigatorBarAdimnController extends GetxController {
 
-
+  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -18,4 +18,5 @@ class NavigatorBarController extends GetxController {
     super.onClose();
   }
 
+  void increment() => count.value++;
 }

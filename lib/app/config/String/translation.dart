@@ -14,6 +14,12 @@ class StringApp implements Translations{
       "Choose" : "اختر دورك للوصول إلى الميزات المصممة وفقًا لمسؤولياتك.",
       "Admin" : "مسؤل",
       "Staff" :  "طاقم عمل",
+      "Home" : "الرئيسية",
+      "Manage Stock" : "إدارة المخزون",
+      "Print Invoice" : "طباعة الفاتورة",
+      "Settings" : "الإعدادات",
+      "View All Products" : "عرض جميع المنتجات",
+
     },
     "en" : {
       "AAQAQIR_TIRGANIN" : "AAQAQIR_TIRGANIN",
@@ -26,6 +32,12 @@ class StringApp implements Translations{
       "Choose" : "Choose your role to access the features tailored for your responsibilities.",
       "Admin" : "Admin",
       "Staff" : "Staff",
+      "Home" : "Home",
+      "Manage Stock" : "Manage Stock",
+      "Print Invoice" : "Print Invoice",
+      "Settings" : "Settings",
+      "View All Products" : "View All Products",
+
     },
     "fr" : {
       "AAQAQIR_TIRGANIN" :  "AAQAQIR_TIRGANIN",
@@ -38,7 +50,12 @@ class StringApp implements Translations{
       "Choose" : "Choisissez votre rôle pour accéder aux fonctionnalités adaptées à vos responsabilités.",
       "Admin" : "Administratrice",
       "Staff" : "Personnelle",
-
+      "Home" : "Accueil",
+      "Manage Stock" : "Gérer le stock",
+      "Print Invoice" : "Imprimer la facture",
+      "Settings" : "Paramètres",
+      "View All Products" : "Voir tous les produits",
+      
     }
   };
  

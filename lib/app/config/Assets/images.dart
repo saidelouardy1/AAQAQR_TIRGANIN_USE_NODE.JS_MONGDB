@@ -15,6 +15,10 @@ class ImagesIconApp {
  static const bookright = "Assets/icons/bookRight.svg";
  static const iconbackleft = "Assets/icons/iconbackleft.svg";
  static const iconbackright = "Assets/icons/iconbackright.svg";
+ static const PrintInvoiceLeft = "Assets/icons/PrintInvoiceLeft.svg";
+ static const PrintInvoiceRight = "Assets/icons/PrintInvoiceRight.svg";
+ static const buy = "Assets/icons/buy.svg";
+ static const AllProduct = "Assets/icons/AllProduct.svg";
 
 
  /////////////// jison

@@ -27,11 +27,11 @@ class OnboardingScreenController extends GetxController {
 
    void toggleRoles(int index) async {
     switch(index){
-      case  0: Get.offAllNamed(Routes.NAVIGATOR_BAR);
+      case  0: Get.offAllNamed(Routes.NAVIGATOR_BAR_ADIMN);
       break;
       case  1: Get.offAllNamed(Routes.NAVIGATOR_BAR_STAFF);
       break;
-      default : Get.offAllNamed(Routes.NAVIGATOR_BAR);
+      default : Get.offAllNamed(Routes.NAVIGATOR_BAR_ADIMN);
       break;
     }
    }
