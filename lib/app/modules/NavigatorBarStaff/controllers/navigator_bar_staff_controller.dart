@@ -3,10 +3,12 @@ import 'package:aaqaqir_tirganin/app/modules/HomeStaffScreen/views/home_staff_sc
 import 'package:aaqaqir_tirganin/app/modules/PrintInvoice/views/print_invoice_view.dart';
 import 'package:aaqaqir_tirganin/app/modules/SettingStaff/views/setting_staff_view.dart';
 import 'package:get/get.dart';
+import 'package:sidebarx/sidebarx.dart';
 
 class NavigatorBarStaffController extends GetxController {
   
 /////////////////////////////////////////////// statement
+late SidebarXController sidebarController;
  RxInt selectedIndex = 0.obs;
  RxList pages = [
       HomeStaffScreenView(),
@@ -26,6 +28,13 @@ class NavigatorBarStaffController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    sidebarController = SidebarXController(
+    selectedIndex: selectedIndex.value,
+    extended: true,
+  );
+  ever(selectedIndex, (index) {
+    sidebarController.selectIndex(index);
+  });
     
   }
 

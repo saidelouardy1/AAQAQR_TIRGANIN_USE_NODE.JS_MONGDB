@@ -4,7 +4,7 @@ class ImagesIconApp {
  ////////////////// png 
  
  static const logo = "Assets/images/logo.png";
- static const mane_work = "Assets/images/manework.png";
+ static const background1 = "Assets/images/background1.png";
  
 
  /////////// svg 
@@ -19,6 +19,8 @@ class ImagesIconApp {
  static const PrintInvoiceRight = "Assets/icons/PrintInvoiceRight.svg";
  static const buy = "Assets/icons/buy.svg";
  static const AllProduct = "Assets/icons/AllProduct.svg";
+ static const Search = "Assets/icons/Search.svg";
+ static const Menu = "Assets/icons/Menu.svg";
 
 
  /////////////// jison

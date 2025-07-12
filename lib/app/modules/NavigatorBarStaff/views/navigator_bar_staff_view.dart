@@ -4,6 +4,7 @@ import 'package:aaqaqir_tirganin/app/config/themes/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../controllers/navigator_bar_staff_controller.dart';
 import 'package:sidebarx/sidebarx.dart';
 
@@ -13,12 +14,12 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsApp.Grey6,
+      backgroundColor: Colors.white,
       body: Row(
         children: [
-         SidebarX(
+          SidebarX(
             ///////////////////////////////////////////////////////////////////// controller
-            controller: SidebarXController(selectedIndex: 0, extended: true),
+            controller: controller.sidebarController,
             /////////////////////////////////////////////////////// header Divider
             headerDivider: Container(
               padding: EdgeInsets.only(top: 20, bottom: 10),
@@ -33,7 +34,7 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                   SizedBox(width: 5),
                   Text(
                     'AAQAQIR_TIRGANIN'.tr,
-                    style: TextStyle(
+                    style: GoogleFonts.pacifico(
                       fontSize: Fonts.bodyLarge,
                       fontWeight: FontWeight.w700,
                       color: ColorsApp.Colors_gradientSplachscreen1,
@@ -43,9 +44,9 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
               ),
             ),
             showToggleButton: false,
+            extendedTheme: SidebarXTheme(width: 175),
             ///////////////////////////////////////////////////////////////////// style item
             theme: SidebarXTheme(
-              width: 175,
               selectedItemMargin: EdgeInsets.symmetric(horizontal: 7),
               selectedItemTextPadding: EdgeInsets.symmetric(horizontal: 5),
               itemTextPadding: EdgeInsets.symmetric(horizontal: 5),
@@ -60,9 +61,10 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withAlpha((0.1 * 255).toInt()),
-                    blurRadius: 12,
-                    offset: Offset(2, 4),
+                    color: Colors.black12,
+                    blurRadius: 10, 
+                    spreadRadius: 10,
+                    offset: Offset(2, 2),
                   ),
                 ],
               ),
@@ -71,13 +73,13 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                 gradient: LinearGradient(
                   colors: [
                     ColorsApp.Colors_gradientSplachscreen2.withAlpha(
-                      (0.6 * 255).toInt(),
+                      (0.5 * 255).toInt(),
                     ),
                     ColorsApp.Colors_gradientSplachscreen1.withAlpha(
-                      (0.3 * 255).toInt(),
+                      (0.2 * 255).toInt(),
                     ),
                     ColorsApp.Colors_gradientSplachscreen2.withAlpha(
-                      (0.6 * 255).toInt(),
+                      (0.5 * 255).toInt(),
                     ),
                   ],
                   begin: Alignment.topLeft,
@@ -86,18 +88,18 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                 borderRadius: BorderRadius.circular(12),
               ),
               //////////////////////////////////////////////////// hover Text
-              hoverTextStyle: TextStyle(
+              hoverTextStyle: GoogleFonts.inter(
                 fontSize: Fonts.headlineSmall,
                 fontWeight: FontWeight.w700,
                 color: ColorsApp.Colors_gradientSplachscreen1,
               ),
               ///////////////////////////////////////////////// selected text style
-              selectedTextStyle: TextStyle(
+              selectedTextStyle: GoogleFonts.inter(
                 fontSize: Fonts.headlineMedium,
                 fontWeight: FontWeight.w700,
                 color: Colors.white,
               ),
-              textStyle: TextStyle(
+              textStyle: GoogleFonts.inter(
                 fontSize: Fonts.headlineSmall,
                 fontWeight: FontWeight.w700,
                 color: ColorsApp.Colors_gradientSplachscreen1,
@@ -111,12 +113,14 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                       ImagesIconApp.Home,
                       width: 18,
                       colorFilter: ColorFilter.mode(
-                        controller.selectedIndex.value == 0 ? Colors.white : Colors.black,
+                        controller.selectedIndex.value == 0
+                            ? Colors.white
+                            : Colors.black,
                         BlendMode.srcIn,
                       ),
                     ),
                 label: 'Home'.tr,
-                onTap: (){
+                onTap: () {
                   controller.changePage(0);
                   print(controller.selectedIndex.value);
                 },
@@ -127,28 +131,32 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                       ImagesIconApp.AllProduct,
                       width: 18,
                       colorFilter: ColorFilter.mode(
-                        controller.selectedIndex.value == 1 ? Colors.white : Colors.black,
+                        controller.selectedIndex.value == 1
+                            ? Colors.white
+                            : Colors.black,
                         BlendMode.srcIn,
                       ),
                     ),
                 label: 'View All Products'.tr,
-                onTap: (){
+                onTap: () {
                   controller.changePage(1);
                   print(controller.selectedIndex.value);
                 },
               ),
               SidebarXItem(
-               iconBuilder:
+                iconBuilder:
                     (context, selected) => SvgPicture.asset(
                       ImagesIconApp.PrintInvoiceLeft,
                       width: 18,
                       colorFilter: ColorFilter.mode(
-                        controller.selectedIndex.value == 2 ? Colors.white : Colors.black,
+                        controller.selectedIndex.value == 2
+                            ? Colors.white
+                            : Colors.black,
                         BlendMode.srcIn,
                       ),
                     ),
                 label: 'Print Invoice'.tr,
-                 onTap: (){
+                onTap: () {
                   controller.changePage(2);
                   print(controller.selectedIndex.value);
                 },
@@ -158,25 +166,25 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                     (context, selected) => SvgPicture.asset(
                       ImagesIconApp.Setting,
                       width: 18,
-                      colorFilter:  ColorFilter.mode(
-                        controller.selectedIndex.value == 3 ? Colors.white : Colors.black,
+                      colorFilter: ColorFilter.mode(
+                        controller.selectedIndex.value == 3
+                            ? Colors.white
+                            : Colors.black,
                         BlendMode.srcIn,
                       ),
                     ),
                 label: 'Settings'.tr,
-                 onTap: (){
+                onTap: () {
                   controller.changePage(3);
                   print(controller.selectedIndex.value);
                 },
               ),
             ],
           ),
-         Expanded(
-            child: Obx(
-              (){
-                return controller.pages[controller.selectedIndex.value];
-              }
-            )
+          Expanded(
+            child: Obx(() {
+              return controller.pages[controller.selectedIndex.value];
+            }),
           ),
         ],
       ),

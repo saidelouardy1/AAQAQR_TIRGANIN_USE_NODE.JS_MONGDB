@@ -11,5 +11,7 @@ class Fonts {
   static const headlineSmall = 11.00;
 
   static const bodyLarge = 10.00;
+  static const bodyMedium = 9.00;
+  static const bodySmall = 7.00;
  
 }

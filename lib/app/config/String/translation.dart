@@ -19,6 +19,8 @@ class StringApp implements Translations{
       "Print Invoice" : "طباعة الفاتورة",
       "Settings" : "الإعدادات",
       "View All Products" : "عرض جميع المنتجات",
+      "Search Product here" : "...ابحث عن منتج هنا",
+
 
     },
     "en" : {
@@ -37,6 +39,8 @@ class StringApp implements Translations{
       "Print Invoice" : "Print Invoice",
       "Settings" : "Settings",
       "View All Products" : "View All Products",
+      "Search Product here" : "Search Product here...",
+
 
     },
     "fr" : {
@@ -55,6 +59,8 @@ class StringApp implements Translations{
       "Print Invoice" : "Imprimer la facture",
       "Settings" : "Paramètres",
       "View All Products" : "Voir tous les produits",
+      "Search Product here" : "Rechercher un produit ici...",
+
       
     }
   };
