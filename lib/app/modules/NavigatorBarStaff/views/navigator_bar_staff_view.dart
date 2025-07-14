@@ -121,7 +121,7 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                     ),
                 label: 'Home'.tr,
                 onTap: () {
-                  controller.changePage(0);
+                  controller.selectedIndex(0);
                   print(controller.selectedIndex.value);
                 },
               ),
@@ -139,7 +139,7 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                     ),
                 label: 'View All Products'.tr,
                 onTap: () {
-                  controller.changePage(1);
+                  controller.selectedIndex(1);
                   print(controller.selectedIndex.value);
                 },
               ),
@@ -157,7 +157,7 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                     ),
                 label: 'Print Invoice'.tr,
                 onTap: () {
-                  controller.changePage(2);
+                  controller.selectedIndex(2);
                   print(controller.selectedIndex.value);
                 },
               ),
@@ -175,7 +175,7 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
                     ),
                 label: 'Settings'.tr,
                 onTap: () {
-                  controller.changePage(3);
+                  controller.selectedIndex(3);
                   print(controller.selectedIndex.value);
                 },
               ),
@@ -183,7 +183,7 @@ class NavigatorBarStaffView extends GetView<NavigatorBarStaffController> {
           ),
           Expanded(
             child: Obx(() {
-              return controller.pages[controller.selectedIndex.value];
+              return controller.Changepage(controller.selectedIndex.value);
             }),
           ),
         ],
