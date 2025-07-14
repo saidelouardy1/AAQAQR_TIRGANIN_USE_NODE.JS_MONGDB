@@ -21,6 +21,9 @@ class ImagesIconApp {
  static const AllProduct = "Assets/icons/AllProduct.svg";
  static const Search = "Assets/icons/Search.svg";
  static const Menu = "Assets/icons/Menu.svg";
+ static const Category = "Assets/icons/Category.svg";
+ static const Add = "Assets/icons/Add.svg";
+ static const Minus = "Assets/icons/Minus.svg";
 
 
  /////////////// jison

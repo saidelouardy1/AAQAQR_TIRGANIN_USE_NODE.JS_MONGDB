@@ -27,7 +27,7 @@ class HomeStaffScreenView extends GetView<HomeStaffScreenController> {
                     left: 40,
                     // , right: 30
                   ),
-                  /////////////////////////////////////////////////////////////////////////////// Text Icon Menu and Textfilde
+                  /////////////////////////////////////////////////////////////////////////////// Text Icon Menu
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,6 +57,7 @@ class HomeStaffScreenView extends GetView<HomeStaffScreenController> {
                           ),
                         ),
                       ),
+                      //////////////////////////////////////////////////////////////// text filde
                       Card(
                         color: Colors.white,
                         elevation: 10,
@@ -115,7 +116,7 @@ class HomeStaffScreenView extends GetView<HomeStaffScreenController> {
               ],
             ),
           ),
-          ////////////////////////////////////////////////// list horizontal
+          //////////////////////////////////////////////////  Item All Catigory
           SliverToBoxAdapter(
             child: Container(
               margin: EdgeInsets.only(
@@ -123,19 +124,17 @@ class HomeStaffScreenView extends GetView<HomeStaffScreenController> {
                 left: 40,
                 // , right: 30
               ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    30,
-                    (index) => InkWell(
+              child: Row(
+                children: [
+                   //////////////////////////////////////////////////  Item All Catigory
+                   Obx(
+                    ()=>InkWell(
                       highlightColor: Colors.transparent,
                       hoverColor: Colors.transparent,
                       splashColor: Colors.transparent,
                       onTap: () {
-                        print(index);
-                        // controller.selectIndexhorizontal.value = index;
+                        controller.selectIndexhorizontal.value = -1;
+                        print('go to see all catigory');
                       },
                       child: Container(
                         width: 100,
@@ -144,11 +143,8 @@ class HomeStaffScreenView extends GetView<HomeStaffScreenController> {
                         margin: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           color:
-                              controller.selectIndexhorizontal.value == index
-                                  ? ColorsApp
-                                      .Colors_gradientSplachscreen2.withAlpha(
-                                    (0.1 * 255).toInt(),
-                                  )
+                              controller.selectIndexhorizontal.value == -1
+                                  ? ColorsApp.Colors_gradientSplachscreen2.withAlpha( (0.1 * 255).toInt())
                                   : Colors.white,
                           borderRadius: BorderRadius.circular(12),
                           boxShadow: [
@@ -168,7 +164,7 @@ class HomeStaffScreenView extends GetView<HomeStaffScreenController> {
                           children: [
                             /////////////////////////// Icon
                             SvgPicture.asset(
-                              ImagesIconApp.Menu,
+                              ImagesIconApp.Category,
                               width: 20,
                               colorFilter: ColorFilter.mode(
                                 Colors.black,
@@ -215,56 +211,337 @@ class HomeStaffScreenView extends GetView<HomeStaffScreenController> {
                         ),
                       ),
                     ),
+                   ),
+                  //////////////////////////////////////////////////  List horizontal present catigory
+                  Expanded(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(
+                          30,
+                          (index) => Obx(
+                            ()=>InkWell(
+                            highlightColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            splashColor: Colors.transparent,
+                            onTap: () {
+                              print(index);
+                              controller.selectIndexhorizontal.value = index;
+                              print( controller.selectIndexhorizontal.value);
+                            },
+                            child: Container(
+                              width: 100,
+                              height: 110,
+                              padding: EdgeInsets.all(13),
+                              margin: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color:
+                                    controller.selectIndexhorizontal.value == index
+                                        ? ColorsApp
+                                            .Colors_gradientSplachscreen2.withAlpha(
+                                          (0.1 * 255).toInt(),
+                                        )
+                                        : Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black26.withAlpha(
+                                      (0.1 * 255).toInt(),
+                                    ),
+                                    spreadRadius: 2,
+                                    blurRadius: 6,
+                                    offset: Offset(3, 3),
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  /////////////////////////// Icon
+                                  SvgPicture.asset(
+                                    ImagesIconApp.Category,
+                                    width: 20,
+                                    colorFilter: ColorFilter.mode(
+                                      Colors.black,
+                                      BlendMode.srcIn,
+                                    ),
+                                  ),
+                                  ///////////////////////////// text
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'All',
+                                        style: GoogleFonts.robotoCondensed(
+                                          fontSize: Fonts.bodyLarge,
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      RichText(
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: "234",
+                                              style: GoogleFonts.robotoCondensed(
+                                                fontSize: Fonts.bodyMedium,
+                                                fontWeight: FontWeight.w500,
+                                                color: ColorsApp.Grey2,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: " item",
+                                              style: GoogleFonts.robotoCondensed(
+                                                fontSize: Fonts.bodyMedium,
+                                                fontWeight: FontWeight.w500,
+                                                color: ColorsApp.Grey2,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          )
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             ),
           ),
           ///////////////////////////////////////////////// list viwe Gride
-          // SliverGrid(
-          //   delegate: SliverChildBuilderDelegate((context, Index) {
-          //     return 
-          //   }, childCount: 1),
-          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //     crossAxisCount: 3,
-          //   ),
-          // ),
-          SliverToBoxAdapter(
-            //////////////////////////////////////// item
-            child: Center(
+          SliverGrid(
+            delegate: SliverChildBuilderDelegate((context, Index) {
+              return Center(
               child: Card(
                 elevation: 8,
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12)
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                child: Padding(
+                child: Container(
                   padding: EdgeInsets.all(10),
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      //////////////////////////////////// image
+                      //////////////////////////////////// image item
                       Material(
-                        elevation: 6,
+                        elevation: 2,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                        clipBehavior:Clip.antiAlias,
-                        child: Image.network(
-                          "https://c8.alamy.com/comp/KHG386/colorful-trees-lined-the-shores-of-patricia-lake-at-jasper-national-KHG386.jpg",
+                        clipBehavior: Clip.antiAlias,
+                        child: Image.asset(
+                          ImagesIconApp.background1,
                           fit: BoxFit.fill,
-                          height: 150,
-                          width: 150,
+                          height: 130,
                         ),
+                      ),
+                      ///////////////////// space
+                      space(),
+                      //////////////////////////////////// title item
+                      Text(
+                        'This app is sotr of materiale build and is developp by ',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.inter(
+                          color: Colors.black,
+                          fontSize: Fonts.titleSmall,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      ///////////////////// space
+                      space(),
+                      //////////////////////////////////// Prix withe quantity
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ///////////////////:::: prix
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "123",
+                                  style: GoogleFonts.inter(
+                                    fontSize: Fonts.headlineMedium,
+                                    color:
+                                        ColorsApp.Colors_gradientSplachscreen2,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: " HD",
+                                  style: GoogleFonts.inter(
+                                    fontSize: Fonts.headlineMedium,
+                                    color:
+                                        ColorsApp.Colors_gradientSplachscreen2,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ///////////////////:::: qauntity
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(4),
+                                child: SvgPicture.asset(
+                                  ImagesIconApp.buy,
+                                  width: 16,
+                                  colorFilter: ColorFilter.mode(ColorsApp.Colors_gradientSplachscreen2, BlendMode.srcIn),
+                                ),
+                              ),
+                              Text(
+                                '112',
+                                style: GoogleFonts.inter(
+                                  fontSize: Fonts.headlineMedium,
+                                  color: ColorsApp.Colors_gradientSplachscreen2,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      ///////////////////// space
+                      space(),
+
+                      /////////////////////////////////////// button add prodact with quantite
+                      InkWell(
+                        onTap: () {
+                          print('add product');
+                        },
+                        child: Container(
+                          width: Get.width,
+                          padding: EdgeInsets.all(6),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: ColorsApp
+                                .Colors_gradientSplachscreen2.withAlpha(
+                              (0.1 * 255).toInt(),
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              //////////////////////////////////////////////////////// icon minus
+                              IconButton(
+                                onPressed: () {
+                                  print("Minus");
+                                },
+                                icon: Container(
+                                  padding: EdgeInsets.all(1),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: ColorsApp.Colors_gradientSplachscreen2.withAlpha((0.5 * 255).toInt()),
+                                  ),
+                                  child: SvgPicture.asset(
+                                    ImagesIconApp.Minus,
+                                    width: 18,
+                                    height: 18,
+                                    colorFilter: ColorFilter.mode(
+                                      Colors.white,
+                                      BlendMode.srcIn,
+                                    ),
+                                  ),
+                                ),
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                highlightColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                              ),
+                              ///////////////////////////////////////////////////: quantity of product
+                              Text(
+                                '0',
+                                style: GoogleFonts.inter(
+                                  color: Colors.black,
+                                  fontSize: Fonts.headlineMedium,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              ////////////////////////////////////////////////////// button plus
+                              IconButton(
+                                onPressed: () {
+                                  print("plus");
+                                },
+                                icon: Container(
+                                  padding: EdgeInsets.all(1),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: ColorsApp.Colors_gradientSplachscreen2.withAlpha((0.5 * 255).toInt()),
+                                  ),
+                                  child: SvgPicture.asset(
+                                    ImagesIconApp.Add,
+                                    width: 18,
+                                    height: 18,
+                                    colorFilter: ColorFilter.mode(
+                                      Colors.white,
+                                      BlendMode.srcIn,
+                                    ),
+                                  ),
+                                ),
+                                padding: EdgeInsets.zero,
+                                constraints: BoxConstraints(),
+                                highlightColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                              ),
+                            ],
+                          ),
+                        ),
+                        // Container(
+                        //   width: Get.width,
+                        //   padding: EdgeInsets.all(6),
+                        //   alignment: Alignment.center,
+                        //   decoration: BoxDecoration(
+                        //     color: ColorsApp.Colors_gradientSplachscreen2.withAlpha((0.1 * 255).toInt()),
+                        //     borderRadius: BorderRadius.circular(8),
+                        //   ),
+                        //   child: Text(
+                        //     'Add',
+                        //     style: GoogleFonts.inter(
+                        //       color: Colors.black,
+                        //       fontSize: Fonts.headlineMedium,
+                        //       fontWeight: FontWeight.w600
+                        //     ),
+                        //   ),
+                        // ),
                       ),
                     ],
                   ),
                 ),
               ),
+            );
+            }, 
+            //////////////////////////// count the product
+            childCount: 1
             ),
-          )
+            //////////////////////////// controlle space 
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  ///////////////////////////////////////// widget space
+  Widget space() {
+    return SizedBox(height: 8);
   }
 }

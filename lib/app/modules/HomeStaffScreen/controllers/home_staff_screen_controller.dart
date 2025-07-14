@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class HomeStaffScreenController extends GetxController {
   
-  RxInt selectIndexhorizontal = 0.obs;
+  RxInt selectIndexhorizontal = (-1).obs;
 
 
 

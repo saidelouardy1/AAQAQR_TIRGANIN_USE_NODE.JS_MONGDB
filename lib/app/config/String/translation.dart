@@ -20,7 +20,8 @@ class StringApp implements Translations{
       "Settings" : "الإعدادات",
       "View All Products" : "عرض جميع المنتجات",
       "Search Product here" : "...ابحث عن منتج هنا",
-
+      "add_product" : "	إضافة منتج",
+      "HD" : "الدرهم",
 
     },
     "en" : {
@@ -40,7 +41,8 @@ class StringApp implements Translations{
       "Settings" : "Settings",
       "View All Products" : "View All Products",
       "Search Product here" : "Search Product here...",
-
+      "add_product" : "	Add Product",
+      "HD" : "HD",
 
     },
     "fr" : {
@@ -60,7 +62,8 @@ class StringApp implements Translations{
       "Settings" : "Paramètres",
       "View All Products" : "Voir tous les produits",
       "Search Product here" : "Rechercher un produit ici...",
-
+      "add_product" : "	Ajouter Produit",
+      "HD" : "HD",
       
     }
   };
