@@ -2,8 +2,12 @@ import 'package:get/get.dart';
 
 import '../modules/ALLProducts/bindings/a_l_l_products_binding.dart';
 import '../modules/ALLProducts/views/a_l_l_products_view.dart';
+import '../modules/AdminSettings/bindings/admin_settings_binding.dart';
+import '../modules/AdminSettings/views/admin_settings_view.dart';
 import '../modules/Authentication/bindings/authentication_binding.dart';
 import '../modules/Authentication/views/authentication_view.dart';
+import '../modules/CategoryProductsViewAdmin/bindings/category_products_view_admin_binding.dart';
+import '../modules/CategoryProductsViewAdmin/views/category_products_view_admin_view.dart';
 import '../modules/HomeAdmin/bindings/home_admin_binding.dart';
 import '../modules/HomeAdmin/views/home_admin_view.dart';
 import '../modules/HomeStaffScreen/bindings/home_staff_screen_binding.dart';
@@ -17,6 +21,8 @@ import '../modules/OnboardingScreen/pages/role_selection_screen.dart';
 import '../modules/OnboardingScreen/views/onboarding_screen_view.dart';
 import '../modules/PrintInvoice/bindings/print_invoice_binding.dart';
 import '../modules/PrintInvoice/views/print_invoice_view.dart';
+import '../modules/ProductsView/bindings/products_view_binding.dart';
+import '../modules/ProductsView/views/products_view_view.dart';
 import '../modules/SettingStaff/bindings/setting_staff_binding.dart';
 import '../modules/SettingStaff/views/setting_staff_view.dart';
 import '../modules/SplashScreen/bindings/splash_screen_binding.dart';
@@ -84,6 +90,21 @@ class AppPages {
       name: _Paths.NAVIGATOR_BAR_ADIMN,
       page: () => const NavigatorBarAdimnView(),
       binding: NavigatorBarAdimnBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRODUCTS_VIEW,
+      page: () => const ProductsViewView(),
+      binding: ProductsViewBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_SETTINGS,
+      page: () => const AdminSettingsView(),
+      binding: AdminSettingsBinding(),
+    ),
+    GetPage(
+      name: _Paths.CATEGORY_PRODUCTS_VIEW_ADMIN,
+      page: () => const CategoryProductsViewAdminView(),
+      binding: CategoryProductsViewAdminBinding(),
     ),
   ];
 }

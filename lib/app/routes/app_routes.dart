@@ -14,6 +14,13 @@ abstract class Routes {
   static const SETTING_STAFF = _Paths.SETTING_STAFF;
   static const HOME_ADMIN = _Paths.HOME_ADMIN;
   static const NAVIGATOR_BAR_ADIMN = _Paths.NAVIGATOR_BAR_ADIMN;
+  static const PRODUCTS_VIEW = _Paths.PRODUCTS_VIEW;
+  static const ADMIN_PRODUCTS_VIEW = _Paths.ADMIN_PRODUCTS_VIEW;
+  static const ADMIN_SETTINGS = _Paths.ADMIN_SETTINGS;
+  static const DASBOARD = _Paths.DASBOARD;
+  static const STORE_MANAGEMENT = _Paths.STORE_MANAGEMENT;
+  static const CATEGORY_PRODUCTS_VIEW_ADMIN =
+      _Paths.CATEGORY_PRODUCTS_VIEW_ADMIN;
 }
 
 abstract class _Paths {
@@ -29,4 +36,10 @@ abstract class _Paths {
   static const SETTING_STAFF = '/setting-staff';
   static const HOME_ADMIN = '/home-admin';
   static const NAVIGATOR_BAR_ADIMN = '/navigator-bar-adimn';
+  static const PRODUCTS_VIEW = '/products-view';
+  static const ADMIN_PRODUCTS_VIEW = '/admin-products-view';
+  static const ADMIN_SETTINGS = '/admin-settings';
+  static const DASBOARD = '/dasboard';
+  static const STORE_MANAGEMENT = '/store-management';
+  static const CATEGORY_PRODUCTS_VIEW_ADMIN = '/category-products-view-admin';
 }
