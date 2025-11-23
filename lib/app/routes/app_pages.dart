@@ -6,8 +6,8 @@ import '../modules/AdminSettings/bindings/admin_settings_binding.dart';
 import '../modules/AdminSettings/views/admin_settings_view.dart';
 import '../modules/Authentication/bindings/authentication_binding.dart';
 import '../modules/Authentication/views/authentication_view.dart';
-import '../modules/CategoryProductsViewAdmin/bindings/category_products_view_admin_binding.dart';
-import '../modules/CategoryProductsViewAdmin/views/category_products_view_admin_view.dart';
+import '../modules/ProductsViewAdmin/bindings/products_view_admin_binding.dart';
+import '../modules/ProductsViewAdmin/views/products_view_admin_view.dart';
 import '../modules/HomeAdmin/bindings/home_admin_binding.dart';
 import '../modules/HomeAdmin/views/home_admin_view.dart';
 import '../modules/HomeStaffScreen/bindings/home_staff_screen_binding.dart';
@@ -102,9 +102,9 @@ class AppPages {
       binding: AdminSettingsBinding(),
     ),
     GetPage(
-      name: _Paths.CATEGORY_PRODUCTS_VIEW_ADMIN,
-      page: () => const CategoryProductsViewAdminView(),
-      binding: CategoryProductsViewAdminBinding(),
+      name: _Paths.PRODUCTS_VIEW_ADMIN,
+      page: () => const ProductsViewAdminView(),
+      binding: ProductsViewAdminBinding(),
     ),
   ];
 }

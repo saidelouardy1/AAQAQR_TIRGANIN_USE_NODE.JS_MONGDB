@@ -9,12 +9,13 @@ class ProductService {
   // جلب جميع منتجات فئة معينة
   Future<List<Product>> getProductsByCategory(String categoryId) async {
     try {
-      final querySnapshot = await _firestore
-          .collection(_collectionName)
-          .where('categoryId', isEqualTo: categoryId)
-          .orderBy('name')
-          .get();
-      
+      final querySnapshot =
+          await _firestore
+              .collection(_collectionName)
+              .where('categoryId', isEqualTo: categoryId)
+              .orderBy('name')
+              .get();
+
       return querySnapshot.docs.map((doc) {
         final data = doc.data();
         return Product(
@@ -42,6 +43,7 @@ class ProductService {
         'createdAt': FieldValue.serverTimestamp(),
         'updatedAt': FieldValue.serverTimestamp(),
       });
+      await incrementCategoryCount(product.categoryId);
       return docRef.id;
     } catch (e) {
       print("Error adding product: $e");
@@ -65,9 +67,10 @@ class ProductService {
   }
 
   // حذف منتج
-  Future<void> deleteProduct(String productId) async {
+  Future<void> deleteProduct(String productId , String categoryId) async {
     try {
       await _firestore.collection(_collectionName).doc(productId).delete();
+      await decrementCategoryCount(categoryId);
     } catch (e) {
       print("Error deleting product: $e");
       throw e;
@@ -77,7 +80,8 @@ class ProductService {
   // جلب منتج بواسطة ID
   Future<Product?> getProductById(String productId) async {
     try {
-      final doc = await _firestore.collection(_collectionName).doc(productId).get();
+      final doc =
+          await _firestore.collection(_collectionName).doc(productId).get();
       if (doc.exists) {
         final data = doc.data()!;
         return Product(
@@ -91,6 +95,63 @@ class ProductService {
       return null;
     } catch (e) {
       print("Error getting product by ID: $e");
+      throw e;
+    }
+  }
+
+  Future<void> incrementCategoryCount(String categoryId) async {
+    try {
+      await _firestore.runTransaction((transaction) async {
+        DocumentReference ref = _firestore
+            .collection('categories')
+            .doc(categoryId);
+        DocumentSnapshot snapshot = await transaction.get(ref);
+
+        if (!snapshot.exists) {
+          print("Category $categoryId does not exist!");
+          return;
+        }
+
+        int currentCount = snapshot.get('productCount') ?? 0;
+        print("Incrementing count from $currentCount to ${currentCount + 1}");
+
+        transaction.update(ref, {
+          'productCount': currentCount + 1,
+          'updatedAt': FieldValue.serverTimestamp(),
+        });
+      });
+    } catch (e) {
+      print("Error incrementing category count: $e");
+      throw e;
+    }
+  }
+
+  Future<void> decrementCategoryCount(String categoryId) async {
+    try {
+      await _firestore.runTransaction((transaction) async {
+        DocumentReference ref = _firestore
+            .collection('categories')
+            .doc(categoryId);
+        DocumentSnapshot snapshot = await transaction.get(ref);
+
+        if (!snapshot.exists) {
+          print("Category $categoryId does not exist!");
+          return;
+        }
+
+        int currentCount = snapshot.get('productCount') ?? 0;
+        if (currentCount > 0) {
+          print("Decrementing count from $currentCount to ${currentCount - 1}");
+          transaction.update(ref, {
+            'productCount': currentCount - 1,
+            'updatedAt': FieldValue.serverTimestamp(),
+          });
+        } else {
+          print("Count is already 0, cannot decrement");
+        }
+      });
+    } catch (e) {
+      print("Error decrementing category count: $e");
       throw e;
     }
   }
